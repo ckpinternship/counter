@@ -4,7 +4,6 @@ body {
     background: #262626;
 }
 
-
 #cup {
     position: absolute;
     top: 50%;
@@ -17,6 +16,7 @@ body {
     border-radius: 5px 5px 15px 15px;
     box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
     transition: all .2s ease-in-out;
+    font-size: 4rem;
 }
 
 #cup:hover {
@@ -54,6 +54,13 @@ body {
     height: 100%;
     background-image: url("water.png");
     animation: animate 1s linear infinite;
+}
+
+#number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes animate {
