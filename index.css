@@ -1,61 +1,70 @@
 body {
-  margin: 0;
-  padding: 0;
-  background: #262626;
+    margin: 0;
+    padding: 0;
+    background: #262626;
+}
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all .2s ease-in-out;
+}
+
+#container:hover {
+    transform: scale(1.1);
 }
 
 #cup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 180px;
-  border: 6px solid #262626;
-  border-top: 2px solid transparent;
-  border-radius: 15px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 180px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
 }
 
 #cup:before {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 80px;
-  border: 6px solid #fff;
-  right: -68px;
-  top: 30px;
-  border-top-right-radius: 35px;
-  border-bottom-right-radius: 35px;
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #fff;
+    right: -68px;
+    top: 30px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
 }
 
-#liquid
-{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  overflow: hidden;
+#liquid {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
 }
 
-#wave
-{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("water.png");
-  animation: animate 1s linear infinite;
+#wave {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("water.png");
+    animation: animate 1s linear infinite;
 }
 
-@keyframes animate
-{
-  0% {background-position: 0% 0;}
-  100% {background-position: 200px 0;}
+@keyframes animate {
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
 }
