@@ -61,6 +61,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #FFEDD8;
+    text-shadow: 3px 4px #311b0073;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #311b00;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 @keyframes animate {
