@@ -2,6 +2,7 @@ const current_services = 40;
 const target_services = 80;
 
 // -------- source --------
+const cup = document.getElementById("cup");
 const wave = document.getElementById("wave");
 const number = document.getElementById("number");
 
@@ -14,9 +15,17 @@ number.innerText = current_services.toString();
 number.innerText = current_services.toString();
 
 // On click
-function cupOnClick() {
-    console.log("I have been clicked!");
-}
+cup.addEventListener("mousedown", (event) => {
+    cup.classList.add("cup-animation");
+});
+
+cup.addEventListener("mouseup", (event) => {
+    cup.classList.remove("cup-animation");
+});
+
+cup.addEventListener("mouseleave", (event) => {
+    cup.classList.remove("cup-animation");
+});
 
 // update liquid wave height
 var current_coffee = 1;
