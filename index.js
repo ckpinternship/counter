@@ -1,4 +1,4 @@
-const current_services = 40;
+const current_services = 8;
 const target_services = 80;
 
 // -------- source --------
@@ -33,6 +33,8 @@ if (100-current_amount <= 4)
     current_coffee = 6;
 else if (100-current_amount <= 10)
     current_coffee = Math.floor(Math.random() * 3) + 4;
-else 
-    current_coffee = Math.floor(Math.random() * 4) + 2;
+else if (100-current_amount <= 80)
+    current_coffee = 3;
+else
+    current_coffee = 4;
 wave.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
