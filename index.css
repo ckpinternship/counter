@@ -119,7 +119,10 @@ body {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-    pointer-events: none;
+    /* Do not allow selecting */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 @keyframes move-liquid {
