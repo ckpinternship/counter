@@ -34,22 +34,28 @@ body {
 }
 
 #cup {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 150px;
-	height: 180px;
-	border: 5px solid #ffedd8;
-	border-top: 2px solid transparent;
-	border-radius: 5px 5px 15px 15px;
-	box-shadow: 0 0 0 6px #311b00, 0 20px 55px #583101;
-	transition: all 0.2s ease-in-out;
-	font-size: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 180px;
+    border: 5px solid #FFEDD8;
+    border-top: 2px solid transparent;
+    border-radius: 5px 5px 15px 15px;
+    box-shadow: 0 0 0 6px #311B00, 0 20px 55px #583101;
+    transition: all .1s ease-out;
+    font-size: 4rem;
 }
 
 #cup:hover {
-	transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1.05);
+    cursor: pointer;
+}
+
+#cup.cup-animation:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    cursor: pointer;
 }
 
 #cup:before {
@@ -75,33 +81,34 @@ body {
 }
 
 #wave {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* background-image: url("assets/coffee4.png"); */
-	animation: animate 1s linear infinite;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: url("assets/coffee4.png"); */
+    animation: move-liquid 1s linear infinite;
 }
 
 #number {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: #ffedd8;
-	text-shadow: 3px 4px #311b0073;
-	-webkit-text-stroke-width: 2px;
-	-webkit-text-stroke-color: #311b00;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFEDD8;
+    text-shadow: 3px 4px #311b0073;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #311b00;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    pointer-events: none;
 }
 
-@keyframes animate {
-	0% {
-		background-position: 0% 0;
-	}
-	100% {
-		background-position: 200px 0;
-	}
+@keyframes move-liquid {
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
 }
