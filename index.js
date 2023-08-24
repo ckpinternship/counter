@@ -17,6 +17,7 @@ number.innerText = current_services.toString();
 // On click
 cup.addEventListener("mousedown", (event) => {
     cup.classList.add("cup-animation");
+    play_click();
 });
 
 cup.addEventListener("mouseup", (event) => {
@@ -29,12 +30,19 @@ cup.addEventListener("mouseleave", (event) => {
 
 // update liquid wave height
 var current_coffee = 1;
-if (100-current_amount <= 4)
+if (100 - current_amount <= 4)
     current_coffee = 6;
-else if (100-current_amount <= 10)
+ else if (100 - current_amount <= 10)
     current_coffee = Math.floor(Math.random() * 3) + 4;
-else if (100-current_amount <= 80)
+ else if (100 - current_amount <= 80)
     current_coffee = 3;
-else
+ else
     current_coffee = 4;
-wave.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
+ wave.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
+
+
+function play_click() {
+    var audio = document.getElementById("audio");
+    audio.currentTime = 0;
+    audio.play();
+}
