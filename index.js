@@ -10,3 +10,8 @@ var current_amount = 100 - Math.round(current_services / target_services * 100);
 wave.style.top = current_amount.toString() + "%";
 
 number.innerText = current_services.toString();
+
+// On click
+function cupOnClick() {
+    console.log("I have been clicked!");
+}
