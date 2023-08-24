@@ -17,6 +17,9 @@ number.innerText = current_services.toString();
 // On click
 cup.addEventListener("mousedown", (event) => {
     cup.classList.add("cup-animation");
+    var audio = document.getElementById("audio");
+    audio.currentTime=0;
+    audio.play();
 });
 
 cup.addEventListener("mouseup", (event) => {
@@ -38,3 +41,4 @@ else if (100-current_amount <= 80)
 else
     current_coffee = 4;
 wave.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
+
