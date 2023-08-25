@@ -81,6 +81,10 @@ body {
     cursor: pointer;
 }
 
+#cup.cup-animation {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
 #cup:before {
 	content: "";
 	position: absolute;
