@@ -5,7 +5,7 @@ const target_services = 80;
 const cup = document.getElementById("cup");
 const wave = document.getElementById("wave");
 const number = document.getElementById("number");
-var audio = document.getElementById("audio");
+const audio = document.getElementById("audio");
 
 // The higher the number, the lower the liquid
 // update liquid amound and number
@@ -22,7 +22,7 @@ cup.addEventListener("mousedown", (event) => {
 });
 
 cup.addEventListener("mouseup", (event) => {
-    setTimeout(() => {cup.classList.remove("cup-animation")}, 15);
+    setTimeout(() => {cup.classList.remove("cup-animation")}, 25);
 });
 
 cup.addEventListener("mouseleave", (event) => {
