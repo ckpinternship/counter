@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
     height: 100%;
     width: 100%;
 }
+
 #background {
     position: absolute;
     top: 50%;
@@ -30,7 +33,7 @@ body {
 	font-size: 3rem;
 	-webkit-text-stroke-width: 2px;
 	-webkit-text-stroke-color: #311b00;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Roboto', sans-serif;
     /* Do not allow selecting */
     -webkit-user-select: none;
     -ms-user-select: none;
