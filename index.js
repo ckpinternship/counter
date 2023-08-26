@@ -5,7 +5,6 @@ const target_services = 80;
 const cup = document.getElementById("cup");
 const wave = document.getElementById("wave");
 const number = document.getElementById("number");
-const audio = document.getElementById("audio");
 
 // The higher the number, the lower the liquid
 // update liquid amound and number
@@ -15,10 +14,11 @@ number.innerText = current_services.toString();
 
 number.innerText = current_services.toString();
 
-// On click
+// Cup click
+var space_down = true;
 cup.addEventListener("mousedown", (event) => {
     cup.classList.add("cup-animation");
-    play_click();
+    play_click_sound();
 });
 
 cup.addEventListener("mouseup", (event) => {
@@ -26,7 +26,26 @@ cup.addEventListener("mouseup", (event) => {
 });
 
 cup.addEventListener("mouseleave", (event) => {
-    cup.classList.remove("cup-animation");
+    if (!space_down)
+        cup.classList.remove("cup-animation");
+});
+
+//spacebar
+document.addEventListener('keydown', event => {
+    if (event.code == "Space" && !space_down) 
+    {
+        cup.classList.add("cup-animation");
+        play_click_sound();
+        space_down = true;
+    }
+});
+
+document.addEventListener('keyup', event => {
+    if (event.code == "Space") 
+    {
+        setTimeout(() => {cup.classList.remove("cup-animation")}, 25);
+        space_down = false;
+    }
 });
 
 // update liquid wave height
@@ -42,7 +61,7 @@ if (100 - current_amount <= 4)
  wave.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
 
 
-function play_click() {
-    audio.currentTime = 0;
+function play_click_sound() {
+    var audio = new Audio("./assets/mixkit-gate-latch-click-1924.wav");
     audio.play();
 }
