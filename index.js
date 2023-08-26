@@ -15,7 +15,7 @@ number.innerText = current_services.toString();
 number.innerText = current_services.toString();
 
 // Cup click
-var space_down = true;
+var space_down = false;
 cup.addEventListener("mousedown", (event) => {
     cup.classList.add("cup-animation");
     play_click_sound();
