@@ -113,6 +113,15 @@ body {
     animation: shake 10s linear infinite;
 }
 
+#multiplier {
+    position: absolute;
+    transform: translate(-40%, -75%) rotate(35deg);
+    left: 100%;
+    font-size: 2.3rem;
+    color: red;
+    animation: move-multiplier 0.75s ease-in-out infinite alternate;
+}
+
 #number {
     position: absolute;
     top: 50%;
@@ -127,6 +136,7 @@ body {
 }
 
 #counter {
+    position: absolute;
     margin: 0;
     padding: 0;
 
@@ -144,6 +154,7 @@ body {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     overflow: hidden;
+    z-index: -2;
 }
 
 #wave {
@@ -193,6 +204,11 @@ footer {
     40%, 60% {
         transform: translate(-46%, -49%);
     }
+}
+
+@keyframes move-multiplier {
+    0% {transform: translate(-40%, -75%) rotate(35deg);}
+    100% {transform: translate(-40%, -75%) rotate(35deg) scale(1.1);}
 }
 
 @media (max-height: 900px) {
