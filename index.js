@@ -7,11 +7,18 @@ const wave_elem = document.getElementById("wave");
 const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
 
+// Preventing dragging of elements
+document.addEventListener("dragstart", preventDrag);
+
+function preventDrag(event) {
+    event.preventDefault();
+}
+
 var counter = 0;
 var multiplier = 1;
 
 // The higher the number, the lower the liquid
-// update liquid amound and number
+// update liquid amount and number
 var current_amount = 100 - Math.round(current_services / target_services * 100);
 wave_elem.style.top = current_amount.toString() + "%";
 number_elem.innerText = current_services.toString();
