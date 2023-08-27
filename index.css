@@ -153,4 +153,8 @@ footer {
     text-align: center;
     color: #311b00;
     font-weight: 600;
+    /* Do not allow selecting */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
