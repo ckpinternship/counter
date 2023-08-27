@@ -1,4 +1,4 @@
-const current_services = 11;
+const current_services = 7;
 const target_services = 80;
 
 // -------- source --------
@@ -14,8 +14,6 @@ var multiplier = 1;
 // update liquid amound and number
 var current_amount = 100 - Math.round(current_services / target_services * 100);
 wave_elem.style.top = current_amount.toString() + "%";
-number_elem.innerText = current_services.toString();
-
 number_elem.innerText = current_services.toString();
 
 // Cup click
