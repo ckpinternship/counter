@@ -11,13 +11,12 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: -1;
     height: 100%;
     width: 100%;
     background: radial-gradient(circle, transparent 20%, #ffedd8 20%, #ffedd8 80%, transparent 80%, transparent) 0% 0% / 52px 52px, radial-gradient(circle, transparent 20%, #ffedd8 20%, #ffedd8 80%, transparent 80%, transparent) 26px 26px / 52px 52px, linear-gradient(#d4a276 2px, transparent 2px) 0px -1px / 26px 26px, linear-gradient(90deg, #d4a276 2px, #ffedd8 2px) -1px 0px / 26px 26px #ffedd8;
     background-size: 52px 52px, 52px 52px, 26px 26px, 26px 26px;
-    background-color: #ffedd8;
     filter: blur(1px);
     -webkit-filter: blur(1px);
 }
@@ -25,17 +24,16 @@ body {
 #title,
 #second-title,
 #tm {
-	text-align: center;
-	margin: 0;
-	padding: 0;
+    text-align: center;
+    padding: 0;
 
-	margin-top: 10vh;
-	color: #ffedd8;
-	text-shadow: 3px 4px #311b0073;
-	font-size: 3rem;
-	-webkit-text-stroke-width: 2px;
-	-webkit-text-stroke-color: #311b00;
-	font-family: 'Ubuntu', sans-serif;
+    margin: 10vh 0 0;
+    color: #ffedd8;
+    text-shadow: 3px 4px #311b0073;
+    font-size: 3rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #311b00;
+    font-family: 'Ubuntu', sans-serif;
     /* Do not allow selecting */
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -43,17 +41,33 @@ body {
 }
 
 #second-title {
-	margin-top: 10px;
-	font-size: 2.5rem;
+    margin-top: 10px;
+    font-size: 2.5rem;
 }
 
 #tm {
-	text-shadow: 0px 0px #311b0073;
-	-webkit-text-stroke-width: 0px;
-	color: #311b00;
-	font-size: 2rem;
-	margin-left: 3.5px;
+    text-shadow: 0 0 #311b0073;
+    -webkit-text-stroke-width: 0;
+    color: #311b00;
+    font-size: 2rem;
+    margin-left: 4px;
 }
+
+#steam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    margin-top: -105%;
+    animation: shake 10s linear infinite;
+    /* Do not allow selecting */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 
 #cup {
     position: absolute;
@@ -63,7 +77,7 @@ body {
     width: 150px;
     height: 180px;
     background-color: #ffedd8DD;
-	border: 5px solid transparent ;
+    border: 5px solid transparent;
     border-top: 2px solid transparent;
     border-radius: 5px 5px 15px 15px;
     box-shadow: 0 0 0 6px #311B00, 0 20px 55px #583101;
@@ -86,15 +100,15 @@ body {
 }
 
 #cup:before {
-	content: "";
-	position: absolute;
-	width: 50px;
-	height: 80px;
-	border: 6px solid #311b00;
-	right: -68px;
-	top: 30px;
-	border-top-right-radius: 35px;
-	border-bottom-right-radius: 35px;
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    border: 6px solid #311b00;
+    right: -68px;
+    top: 30px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
 }
 
 #number {
@@ -106,7 +120,7 @@ body {
     text-shadow: 3px 4px #311b0073;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* Do not allow selecting */
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -116,7 +130,7 @@ body {
 #counter {
     margin: 0;
     padding: 0;
-    
+
     font-size: 1.5rem;
     font-family: 'Ubuntu', sans-serif;
     color: #311b00;
@@ -129,13 +143,13 @@ body {
 
 
 #liquid {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
 }
 
 #wave {
@@ -158,6 +172,23 @@ body {
     }
 }
 
+@keyframes shake {
+    10%, 90% {
+        transform: translate(-51%, -51%);
+    }
+
+    20%, 80% {
+        transform: translate(-48%, -49%);
+    }
+
+    30%, 50%, 70% {
+        transform: translate(-54%, -51%);
+    }
+
+    40%, 60% {
+        transform: translate(-46%, -49%);
+    }
+}
 
 footer {
     margin: 0;

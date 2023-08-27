@@ -7,11 +7,18 @@ const wave_elem = document.getElementById("wave");
 const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
 
+// Preventing dragging of elements
+document.addEventListener("dragstart", preventDrag);
+
+function preventDrag(event) {
+    event.preventDefault();
+}
+
 var counter = 0;
 var multiplier = 1;
 
 // The higher the number, the lower the liquid
-// update liquid amound and number
+// update liquid amount and number
 var current_amount = 100 - Math.round(current_services / target_services * 100);
 wave_elem.style.top = current_amount.toString() + "%";
 number_elem.innerText = current_services.toString();
@@ -25,18 +32,18 @@ cup_elem.addEventListener("mousedown", (event) => {
 });
 
 cup_elem.addEventListener("mouseup", (event) => {
-    setTimeout(() => {cup_elem.classList.remove("cup-animation")}, 25);
+    setTimeout(() => {
+        cup_elem.classList.remove("cup-animation")
+    }, 25);
 });
 
 cup_elem.addEventListener("mouseleave", (event) => {
-    if (!space_down)
-        cup_elem.classList.remove("cup-animation");
+    if (!space_down) cup_elem.classList.remove("cup-animation");
 });
 
 //spacebar
 document.addEventListener('keydown', event => {
-    if (event.code == "Space" && !space_down) 
-    {
+    if (event.code === "Space" && !space_down) {
         cup_elem.classList.add("cup-animation");
         play_click_sound();
         space_down = true;
@@ -45,28 +52,24 @@ document.addEventListener('keydown', event => {
 });
 
 document.addEventListener('keyup', event => {
-    if (event.code == "Space") 
-    {
-        setTimeout(() => {cup_elem.classList.remove("cup-animation")}, 25);
+    if (event.code === "Space") {
+        setTimeout(() => {
+            cup_elem.classList.remove("cup-animation")
+        }, 25);
         space_down = false;
     }
 });
 
 // update liquid wave height
 var current_coffee = 1;
-if (100 - current_amount <= 4)
-    current_coffee = 6;
- else if (100 - current_amount <= 10)
-    current_coffee = Math.floor(Math.random() * 3) + 4;
- else if (100 - current_amount <= 80)
-    current_coffee = 3;
- else
-    current_coffee = 4;
- wave_elem.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
+if (100 - current_amount <= 10) current_coffee = 6;
+else if (100 - current_amount <= 80) current_coffee = 3;
+else current_coffee = 4;
+wave_elem.style.backgroundImage = `url(assets/coffee${current_coffee}.png)`
 
 
 function play_click_sound() {
-    var audio = new Audio("./assets/mixkit-gate-latch-click-1924.wav");
+    const audio = new Audio("./assets/mixkit-gate-latch-click-1924.wav");
     audio.play();
 }
 
