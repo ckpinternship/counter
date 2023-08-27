@@ -8,11 +8,7 @@ const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
 
 // Preventing dragging of elements
-document.addEventListener("dragstart", preventDrag);
-
-function preventDrag(event) {
-    event.preventDefault();
-}
+document.addEventListener("dragstart", (evebt) => {event.preventDefault()});
 
 var counter = 0;
 var multiplier = 1;

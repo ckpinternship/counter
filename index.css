@@ -7,6 +7,12 @@ body {
     padding: 0;
 }
 
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 #background {
     position: absolute;
     top: 50%;
@@ -34,10 +40,6 @@ body {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
     font-family: 'Ubuntu', sans-serif;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 #second-title {
@@ -51,21 +53,6 @@ body {
     color: #311b00;
     font-size: 2rem;
     margin-left: 4px;
-}
-
-#steam {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90px;
-    height: 90px;
-    transform: translate(-50%, -50%);
-    margin-top: -105%;
-    animation: shake 10s linear infinite;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 
@@ -111,6 +98,17 @@ body {
     border-bottom-right-radius: 35px;
 }
 
+#steam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    margin-top: -105%;
+    animation: shake 10s linear infinite;
+}
+
 #number {
     position: absolute;
     top: 50%;
@@ -121,10 +119,6 @@ body {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 #counter {
@@ -134,11 +128,6 @@ body {
     font-size: 1.5rem;
     font-family: 'Ubuntu', sans-serif;
     color: #311b00;
-
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 
@@ -161,6 +150,17 @@ body {
     height: 100%;
     /* background-image: url("assets/coffee4.png"); */
     animation: move-liquid 1s linear infinite;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100vw;
+    bottom: 5px;
+    text-align: center;
+    color: #311b00;
+    font-weight: 600;
 }
 
 @keyframes move-liquid {
@@ -188,19 +188,4 @@ body {
     40%, 60% {
         transform: translate(-46%, -49%);
     }
-}
-
-footer {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    width: 100vw;
-    bottom: 5px;
-    text-align: center;
-    color: #311b00;
-    font-weight: 600;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
