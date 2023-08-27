@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+html {
+    /* filter: invert(); */
+    filter: hue-rotate(0deg);
+}
+
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #background {
@@ -27,17 +38,13 @@ body {
     text-align: center;
     padding: 0;
 
-    margin: 10vh 0 0;
+    margin: 7.5vh 0 0 0;
     color: #ffedd8;
     text-shadow: 3px 4px #311b0073;
     font-size: 3rem;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
     font-family: 'Ubuntu', sans-serif;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 #second-title {
@@ -51,21 +58,6 @@ body {
     color: #311b00;
     font-size: 2rem;
     margin-left: 4px;
-}
-
-#steam {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90px;
-    height: 90px;
-    transform: translate(-50%, -50%);
-    margin-top: -105%;
-    animation: shake 10s linear infinite;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 
@@ -111,6 +103,25 @@ body {
     border-bottom-right-radius: 35px;
 }
 
+#steam {
+    position: absolute;
+    top: calc(50% - 175px);
+    left: 50%;
+    width: 95px;
+    height: 95px;
+    transform: translate(-50%, -50%);
+    animation: shake 10s linear infinite;
+}
+
+#multiplier {
+    position: absolute;
+    transform: translate(-40%, -75%) rotate(35deg);
+    left: 100%;
+    font-size: 2.3rem;
+    color: red;
+    animation: move-multiplier 0.75s ease-in-out infinite alternate;
+}
+
 #number {
     position: absolute;
     top: 50%;
@@ -121,24 +132,17 @@ body {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #311b00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    z-index: 1;
 }
 
 #counter {
+    position: absolute;
     margin: 0;
     padding: 0;
 
     font-size: 1.5rem;
     font-family: 'Ubuntu', sans-serif;
     color: #311b00;
-
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 
@@ -150,6 +154,7 @@ body {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     overflow: hidden;
+    z-index: -2;
 }
 
 #wave {
@@ -161,6 +166,17 @@ body {
     height: 100%;
     /* background-image: url("assets/coffee4.png"); */
     animation: move-liquid 1s linear infinite;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100vw;
+    bottom: 5px;
+    text-align: center;
+    color: #311b00;
+    font-weight: 600;
 }
 
 @keyframes move-liquid {
@@ -190,17 +206,13 @@ body {
     }
 }
 
-footer {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    width: 100vw;
-    bottom: 5px;
-    text-align: center;
-    color: #311b00;
-    font-weight: 600;
-    /* Do not allow selecting */
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+@keyframes move-multiplier {
+    0% {transform: translate(-40%, -75%) rotate(35deg);}
+    100% {transform: translate(-40%, -75%) rotate(35deg) scale(1.1);}
+}
+
+@media (max-height: 900px) {
+    #steam {
+      display: none;
+    }
 }
