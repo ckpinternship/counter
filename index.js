@@ -1,4 +1,4 @@
-const current_services = 3;
+const current_services = 7;
 const target_services = 80;
 
 // -------- source --------
