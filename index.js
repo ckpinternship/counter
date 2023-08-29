@@ -6,12 +6,17 @@ const cup_elem = document.getElementById("cup");
 const wave_elem = document.getElementById("wave");
 const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
+const multiplier_elem = document.getElementById("multiplier");
 
 // Preventing dragging of elements
 document.addEventListener("dragstart", (evebt) => {event.preventDefault()});
 
 var counter = 0;
 var multiplier = 1;
+var multiplier_level = 1;
+
+var clicks = 0;
+var last_clicked = last_updated = 0;
 
 // The higher the number, the lower the liquid
 // update liquid amount and number
@@ -71,7 +76,51 @@ function play_click_sound() {
 
 function increment_counter() {
     counter += 1 * multiplier;
+    clicks += 1;
     view_counter = BigInt(counter)
     document.title = `${view_counter} | Internship Counter`;
     counter_elem.innerText = view_counter;
 }
+
+function update_multiplier(amnt) 
+{
+    if (amnt == 0)
+    {
+        multiplier = 1;
+        multiplier_level = 1;
+        multiplier_elem.innerText = '';
+    }
+    else
+    {
+        multiplier *= 2;
+        multiplier_elem.innerText = "x" + BigInt(multiplier);
+        multiplier_level += 1;
+    }
+}
+
+// Update Multiplier
+setInterval(function () {
+    
+    if (clicks > 5)
+    {
+        last_clicked = 0;
+        last_updated += 1;
+        
+        if (last_updated >= 1 + 0.1*multiplier_level && last_updated != 0)
+        {
+            update_multiplier(clicks);
+            last_updated = 0.4;
+        }
+    }
+    else
+    {
+        last_clicked += 1;
+        last_updated = 0;
+    }
+    
+    if (last_clicked == 2)
+        update_multiplier(0);
+    
+    
+    clicks = 0;
+}, 1000);

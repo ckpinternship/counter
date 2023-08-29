@@ -211,7 +211,7 @@ footer {
     100% {transform: translate(-40%, -75%) rotate(35deg) scale(1.1);}
 }
 
-@media (max-height: 900px) {
+@media (max-height: 875px) {
     #steam {
       display: none;
     }
