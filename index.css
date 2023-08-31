@@ -3,6 +3,7 @@
 html {
     /* filter: invert(); */
     filter: hue-rotate(0deg);
+    overflow: hidden;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -100;
     height: 100%;
     width: 100%;
     background: radial-gradient(circle, transparent 20%, #ffedd8 20%, #ffedd8 80%, transparent 80%, transparent) 0% 0% / 52px 52px, radial-gradient(circle, transparent 20%, #ffedd8 20%, #ffedd8 80%, transparent 80%, transparent) 26px 26px / 52px 52px, linear-gradient(#d4a276 2px, transparent 2px) 0px -1px / 26px 26px, linear-gradient(90deg, #d4a276 2px, #ffedd8 2px) -1px 0px / 26px 26px #ffedd8;
@@ -113,13 +114,22 @@ body {
     animation: shake 10s linear infinite;
 }
 
-#multiplier {
+.multiplier {
     position: absolute;
-    transform: translate(-40%, -75%) rotate(35deg);
-    left: 100%;
-    font-size: 2.3rem;
-    color: red;
-    animation: move-multiplier 0.75s ease-in-out infinite alternate;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #311b00;
+    left: 100px;
+    width: 50px;
+    height: 30px;
+    z-index: -3;
+    transition: opacity 1.5s ease;
+}
+
+.multiplier.fade-out {
+    opacity: 0;
 }
 
 #number {
@@ -206,9 +216,17 @@ footer {
     }
 }
 
-@keyframes move-multiplier {
-    0% {transform: translate(-40%, -75%) rotate(35deg);}
-    100% {transform: translate(-40%, -75%) rotate(35deg) scale(1.1);}
+@keyframes spin-multiplier {
+    0% {transform: translate(-50%, -50%) rotate(0deg);}
+    100% {transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+@keyframes moveX {
+    from { left: 35px; } to { left: calc(100vw - 35px); }
+  }
+  
+@keyframes moveY {
+    from { top: 35px; } to { top: calc(100vh - 35px); }
 }
 
 @media (max-height: 875px) {

@@ -1,4 +1,4 @@
-const current_services = 7;
+const current_services = 15;
 const target_services = 80;
 
 // -------- source --------
@@ -6,7 +6,6 @@ const cup_elem = document.getElementById("cup");
 const wave_elem = document.getElementById("wave");
 const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
-const multiplier_elem = document.getElementById("multiplier");
 
 // Preventing dragging of elements
 document.addEventListener("dragstart", (evebt) => {event.preventDefault()});
@@ -88,13 +87,12 @@ function update_multiplier(amnt)
     {
         multiplier = 1;
         multiplier_level = 1;
-        multiplier_elem.innerText = '';
     }
     else
     {
-        multiplier *= 2;
-        multiplier_elem.innerText = "x" + BigInt(multiplier);
+        multiplier *= amnt;
         multiplier_level += 1;
+        create_multiplier_element(`x${amnt}`,getRandom(1, 4), getRandom(1, 4), getRandom(0.5, 2));
     }
 }
 
@@ -106,10 +104,10 @@ setInterval(function () {
         last_clicked = 0;
         last_updated += 1;
         
-        if (last_updated >= 1 + 0.1*multiplier_level && last_updated != 0)
+        if (last_updated >= (15 + 2*multiplier_level) / clicks)
         {
             update_multiplier(clicks);
-            last_updated = 0.4;
+            last_updated = 0;
         }
     }
     else
@@ -119,8 +117,40 @@ setInterval(function () {
     }
     
     if (last_clicked == 2)
+    {
         update_multiplier(0);
+        remove_multipliers();
+    }
     
     
     clicks = 0;
 }, 1000);
+
+function create_multiplier_element(text, movex_speed, movey_speed, spin_speed)
+{
+    let newmultiplier = document.createElement("div");
+    newmultiplier.classList.add("multiplier");
+    newmultiplier.classList.add("no-select");
+    newmultiplier.innerText = text;
+    newmultiplier.style.animation = `moveX ${movex_speed}s linear -${getRandom(1, 4)}s infinite alternate,\
+     moveY ${movey_speed}s linear -${getRandom(1, 4)}s infinite alternate,\
+      spin-multiplier ${spin_speed}s linear infinite`;
+
+    document.body.appendChild(newmultiplier);
+}
+
+function remove_multipliers()
+{
+    let elementsToRemove = document.querySelectorAll('.multiplier');
+
+    elementsToRemove.forEach(element => {
+        element.classList.add('fade-out');
+        element.addEventListener('transitionend', () => {
+          element.remove();
+        });
+    });
+}
+
+function getRandom(min, max) {
+    return Math.random() * max + min;
+  }
