@@ -76,7 +76,7 @@ function play_click_sound() {
 function increment_counter() {
     counter += 1 * multiplier;
     clicks += 1;
-    view_counter = BigInt(counter)
+    view_counter = BigInt(counter);
     document.title = `${view_counter} | Internship Counter`;
     counter_elem.innerText = view_counter;
 }
@@ -87,12 +87,15 @@ function update_multiplier(amnt)
     {
         multiplier = 1;
         multiplier_level = 1;
+        remove_multipliers();
+        document.documentElement.style.setProperty('--base-filter-deg', `${0}`);
     }
     else
     {
-        multiplier *= amnt;
+        multiplier *= 2;
         multiplier_level += 1;
-        create_multiplier_element(`x${amnt}`,getRandom(1, 4), getRandom(1, 4), getRandom(0.5, 2));
+        create_multiplier_element(`x${2}`,getRandom(3, 4), getRandom(3, 4), getRandom(1, 2));
+        document.documentElement.style.setProperty('--base-filter-deg', `${multiplier_level*22.5}deg`);
     }
 }
 
@@ -104,7 +107,7 @@ setInterval(function () {
         last_clicked = 0;
         last_updated += 1;
         
-        if (last_updated >= (15 + 2*multiplier_level) / clicks)
+        if (last_updated >= 5 + (2*multiplier_level / clicks) && last_updated != 0)
         {
             update_multiplier(clicks);
             last_updated = 0;
@@ -117,11 +120,7 @@ setInterval(function () {
     }
     
     if (last_clicked == 2)
-    {
         update_multiplier(0);
-        remove_multipliers();
-    }
-    
     
     clicks = 0;
 }, 1000);

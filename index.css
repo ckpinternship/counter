@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+:root {
+    --base-filter-deg: 0deg;
+    --cup-filter-deg: 0deg;
+    --filter-transition: filter 0.7s ease-out;
+  }
+
 html {
     /* filter: invert(); */
-    filter: hue-rotate(0deg);
+    filter: hue-rotate(var(--base-filter-deg));
     overflow: hidden;
+    transition: var(--filter-transition);
 }
 
 body {
@@ -74,8 +81,9 @@ body {
     border-top: 2px solid transparent;
     border-radius: 5px 5px 15px 15px;
     box-shadow: 0 0 0 6px #311B00, 0 20px 55px #583101;
-    transition: all .1s ease-out;
     font-size: 4rem;
+    filter: hue-rotate(calc(var(--cup-filter-deg)));  /*Add var(--base-filter-deg)*/
+    transition: transform .1s ease-out, var(--filter-transition);;
 }
 
 #cup:hover {
@@ -125,6 +133,7 @@ body {
     width: 50px;
     height: 30px;
     z-index: -3;
+    transform-origin: center;
     transition: opacity 1.5s ease;
 }
 
@@ -217,8 +226,8 @@ footer {
 }
 
 @keyframes spin-multiplier {
-    0% {transform: translate(-50%, -50%) rotate(0deg);}
-    100% {transform: translate(-50%, -50%) rotate(360deg);}
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
 @keyframes moveX {
