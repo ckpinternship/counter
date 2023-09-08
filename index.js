@@ -73,6 +73,14 @@ function play_click_sound() {
     audio.play();
 }
 
+function play_powerup_sound() {
+    const audio = new Audio("./assets/powerup.mp3");
+    audio.volume = 0.25;
+    audio.play();
+}
+
+
+
 function increment_counter() {
     counter += 1 * multiplier;
     clicks += 1;
@@ -96,18 +104,18 @@ function update_multiplier(amnt)
         multiplier_level += 1;
         create_multiplier_element(`x${2}`,getRandom(3, 4), getRandom(3, 4), getRandom(1, 2));
         document.documentElement.style.setProperty('--base-filter-deg', `${multiplier_level*22.5}deg`);
+        play_powerup_sound();
     }
 }
 
 // Update Multiplier
 setInterval(function () {
-    
     if (clicks > 5)
     {
         last_clicked = 0;
         last_updated += 1;
         
-        if (last_updated >= 5 + (2*multiplier_level / clicks) && last_updated != 0)
+        if (last_updated >= 5 + (1.5*multiplier_level / clicks) && last_updated != 0)
         {
             update_multiplier(clicks);
             last_updated = 0;
