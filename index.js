@@ -2,13 +2,18 @@ const current_services = 75;
 const target_services = 80;
 
 // -------- source --------
+
+
+startConfetti();
+
+////
 const cup_elem = document.getElementById("cup");
 const wave_elem = document.getElementById("wave");
 const number_elem = document.getElementById("number");
 const counter_elem = document.getElementById("counter");
 
 // Preventing dragging of elements
-document.addEventListener("dragstart", (evebt) => {event.preventDefault()});
+document.addEventListener("dragstart", (evebt) => { event.preventDefault() });
 
 var counter = 0;
 var multiplier = 1;
